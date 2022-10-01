@@ -3,6 +3,7 @@ const addBtn = document.getElementById('add-btn')
 const todoList = document.getElementById('todo-list')
 const deleteBtn = document.getElementById('delete-btn')
 const itemNo = document.getElementById('item-no')
+const resetBtn = document.getElementById('reset-btn')
 let count = 0
 let items = document.getElementById('items');
 
@@ -24,10 +25,10 @@ function getInput(){
 
 }
 
-const todos = [];
+let todos = [];
 addBtn.addEventListener('click',function(){
+  let newStr = '';
  
-  let newStr = ''
   if(!todos.includes(inputText.value) && inputText.value){
     todos.push(getInput())
    count++ 
@@ -44,4 +45,11 @@ addBtn.addEventListener('click',function(){
    }else if(count > 1){
     items.innerHTML = 'items'
    }
+})
+
+resetBtn.addEventListener('click',function(){
+  count= 0;
+  itemNo.innerHTML = count;
+  todos=[];
+  todoList.innerHTML = ''
 })
